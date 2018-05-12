@@ -151,7 +151,8 @@ class DES(var password: String, var text: String,
    */
   def run(): String = {
     if (password.length < 8) {
-      throw new Exception("Key Should be 8 bytes long.")
+      // throw new Exception("Key Should be 8 bytes long.")
+      password = String.format("%-8s", password).replace(' ', '*')
     }
     // If key size is above 8 bytes, cut to be 8 bytes long.
     else if (password.length > 8) {
